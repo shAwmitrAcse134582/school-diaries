@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>School diary</title>
+    <th:block th:insert="fragments/imports :: head"></th:block>
+    <th:block th:insert="fragments/imports :: grade-liks"></th:block>
+</head>
+<body>
+<th:block th:insert="fragments/components :: nav"></th:block>
+<div class="main-wrapper justify-content-center">
+    <a id="button-top"></a>
+    <h2>University Agenda:</h2>
+
+    <div class="col-8 mt-3 custom-jumbotron">
+        <!-- Notice 1 -->
+        <div class="h-100 p-5 bg-light border rounded-3">
+            <p>
+                "Important Announcement: Lorem ipsum dolor sit amet, consectetur adipiscing elit."</p>
+            <p>Author: John Doe</p>
+            <p>Time: January 1, 2023 10:00 AM</p>
+        
+            <p><a href="#" class="message-link" data-notice="1">Send a Message</a></p>
+        </div>
+
+        <!-- Notice 2 -->
+        <div class="h-100 p-5 bg-light border rounded-3">
+            <p>
+                "Upcoming Event: Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."</p>
+            <p>Author: Jane Smith</p>
+            <p>Time: January 2, 2023 2:30 PM</p>
+            <p><a href="#" class="message-link" data-notice="2">Send a Message</a></p>
+        </div>
+    </div>
+</div>
+
+<!-- Message Modal -->
+<div class="modal fade" id="messageModal" tabindex="-1" role="dialog" aria-labelledby="messageModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="messageModalLabel">Leave a Message</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="message">Your Message:</label>
+                        <textarea class="form-control" id="message" rows="3"></textarea>
+                    </div>
+    
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+<th:block th:insert="fragments/imports :: js_import"></th:block>
+
+<script>
+    // JavaScript to handle message modal
+    $('.message-link').on('click', function () {
+        var noticeNumber = $(this).data('notice');
+        $('#messageModalLabel').text('Leave a Message for Notice ' + noticeNumber);
+        $('#messageModal').modal('show');
+    });
+</script>
+
+</html>

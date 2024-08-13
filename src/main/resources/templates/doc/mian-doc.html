@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>School diary - doc.</title>
+    <th:block th:insert="fragments/imports :: head"></th:block>
+    <th:block th:insert="fragments/imports :: grade-liks"></th:block>
+</head>
+<body>
+<th:block th:insert="fragments/components :: nav"></th:block>
+<div class="main-wrapper">
+    <a id="button-top"></a>
+    <div class="col-8 mt-3 custom-jumbotron">
+        <div class="h-100 p-5 bg-light border rounded-3">
+            <h4 class="text-center">Adding users and registering:</h4>
+            <p>The application allows you to register new users with the USER role and then log in with their help,
+                To register, select the "Register" button in the navigation bar and complete the form,
+                the connection to the server is not encrypted therefore the password has no password requirements, it can be the simplest
+                (the password is saved in the database after hashing), after correct registration, a confirmation email will be sent to the address provided in the form</p>
+            <p>By default, the application has several users with which you can log in</p>
+            <ul>
+                <li>Admin: <br>mail: admin@gmail.com<br>password: admin</li>
+                <li>Teacher: <br>mail: teacher@gmail.com<br>password: teacher</li>
+                <li>
+                    Random users are also created whose login and password are email.</li>
+            </ul>
+
+            <p>After logging in, you can also add individual users using the form available in the "Add student" navigation bar.</p>
+            <hr/>
+            <h4 class="text-center">Giving ratings:</h4>
+            <p>After logging in as a user with the ADMIN, TEACHER or PRINCIPAL role, we get the opportunity to assign grades to students, to do this, select "students list" while logged in, search for the student and click "+" to expand the details, enter the student's profile and add grades there</p>
+        </div>
+    </div>
+</div>
+</body>
+<th:block th:insert="fragments/imports :: js_import"></th:block>
+
+</html>
